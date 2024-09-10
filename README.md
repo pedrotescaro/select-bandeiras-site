@@ -19,4 +19,4 @@ Este projeto fornece um exemplo de como criar um menu suspenso de seleção de p
 
 1. **Clone o Repositório**:
    ```bash
-   git clone https://github.com/SEU_USUARIO/select-com-bandeiras.git
+   git clone https://github.com/SEU_USUARIO/select-bandeiras-site.git
