@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select com Bandeiras</title>
+
+    <!-- CSS do Select2 -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
+    <style>
+        .img-flag {
+            width: 20px;
+            height: 15px;
+            margin-right: 10px;
+        }
+
+        /* Customiza o tamanho do select */
+        .meu-select {
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Escolha um país:</h2>
+
+    <!-- Select com opções de países -->
+    <select class="meu-select">
+        <option value="br">Brasil</option>
+        <option value="us">Estados Unidos</option>
+        <option value="fr">França</option>
+        <option value="de">Alemanha</option>
+    </select>
+
+    <!-- Scripts do Select2 e jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+
+    <script>
+        // Função para formatar as opções com bandeiras
+        function formatState(state) {
+            if (!state.id) {
+                return state.text; // Retorna o texto se não houver valor
+            }
+
+            // Cria um elemento <span> contendo a bandeira e o texto do país
+            var $state = $(
+                '<span><img src="https://flagcdn.com/16x12/' + state.element.value + '.png" class="img-flag" /> ' + state.text + '</span>'
+            );
+            return $state;
+        }
+
+        // Inicializa o Select2 com a formatação customizada
+        $(document).ready(function() {
+            $(".meu-select").select2({
+                templateResult: formatState,  // Aplica o template customizado para as opções
+                templateSelection: formatState // Também formata a opção selecionada com bandeira
+            });
+        });
+    </script>
+
+</body>
+</html>
